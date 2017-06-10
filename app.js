@@ -1,7 +1,15 @@
 angular.module('flapperNews', [])
+.factory('posts', [function()
+        {
+            var o= {
+                posts: []
+            };
+            return o;
+        }])
 .controller('MainCtrl', [
-'$scope',
-function($scope){
+'$scope', 'posts',
+function($scope,posts){
+    $scope.posts = posts.posts;
     $scope.test = 'Manchester United';
     $scope.posts = [ 
 {title: 'post 1',upvotes: 5},
